@@ -18,6 +18,7 @@ const net = require('net');
 const client = new net.Socket();
 const { SerialPort } = require('serialport');
 const audioServer = require('./stream/3las.server');
+const { startDenonStream } = require('./stream/denon.js');
 const tunnel = require('./tunnel');
 
 // File imports
@@ -110,6 +111,7 @@ app.use(bodyParser.json());
 connectToXdrd();
 connectToSerial();
 tunnel.connect();
+startDenonStream();
 
 // Serialport retry code when port is open but communication is lost (additional code in datahandler.js)
 dataHandler.state.isSerialportRetrying = false;

@@ -49,7 +49,11 @@ let serverConfig = {
     softwareMode: false,
     startupVolume: "0.95",
     ffmpeg: false,
-    samplerateOffset: "0"
+    samplerateOffset: "0",
+    denonStream: {
+      enabled: false,
+      port: 8081
+    }
   },
   identification: {
     token: null,
