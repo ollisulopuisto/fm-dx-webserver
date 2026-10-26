@@ -66,6 +66,12 @@ function handleConnect(clientIp, currentUsers, ws, callback) {
     return;
   }
 
+  if (net.isIP(clientIp) === 0) {
+    // Invalid IP address provided
+    processConnection(clientIp, {}, currentUsers, ws, callback);
+    return;
+  }
+
   http.get(`http://ip-api.com/json/${clientIp}`, (response) => {
     let data = "";
 
